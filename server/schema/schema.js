@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const db = require('../models');
 
 const {
   GraphQLObjectType,
@@ -10,27 +11,33 @@ const {
 } = graphql;
 
 // Dummy books data
-const books = [
-  { id: '001', name: 'Name of the Wind', genre: 'Fantasy', authorId: '001' },
-  { id: '002', name: 'The Final Empire', genre: 'Fantasy', authorId: '002' },
-  { id: '003', name: 'The Long Earth', genre: 'Sci-Fi', authorId: '003' },
-  { id: '004', name: 'The Hero of Ages', genre: 'Sci-Fi', authorId: '002' },
-  { id: '005', name: 'The Colour of Magic', genre: 'Fantasy', authorId: '003' },
-  { id: '006', name: 'The Light Fantastic', genre: 'Fantasy', authorId: '003' }
-];
+// const books = [
+//   { id: '001', title: 'Name of the Wind', genre: 'Fantasy', authorId: '001' },
+//   { id: '002', title: 'The Final Empire', genre: 'Fantasy', authorId: '002' },
+//   { id: '003', title: 'The Long Earth', genre: 'Sci-Fi', authorId: '003' },
+//   { id: '004', title: 'The Hero of Ages', genre: 'Sci-Fi', authorId: '002' },
+//   {
+//     id: '005',
+//     title: 'The Colour of Magic',
+//     genre: 'Fantasy',
+//     authorId: '003'
+//   },
+//   { id: '006', title: 'The Light Fantastic', genre: 'Fantasy', authorId: '003' }
+// ];
 
-const authors = [
-  { id: '001', name: 'Patrick Rothfuss', age: 44 },
-  { id: '002', name: 'Brandon Sanderson', age: 42 },
-  { id: '003', name: 'Terry Pratchett', age: 66 }
-];
+// const authors = [
+//   { id: '001', name: 'Patrick Rothfuss', age: 44 },
+//   { id: '002', name: 'Brandon Sanderson', age: 42 },
+//   { id: '003', name: 'Terry Pratchett', age: 66 }
+// ];
 
 const Book = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
+    title: { type: GraphQLString },
     genre: { type: GraphQLString },
+    synopsis: { type: GraphQLString },
     authorId: { type: GraphQLID },
     author: {
       type: Author,

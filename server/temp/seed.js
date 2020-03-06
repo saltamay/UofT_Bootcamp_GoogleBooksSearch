@@ -1,3 +1,4 @@
+require('dotenv').config();
 const db = require('../models');
 
 // This file empties the Books collection and inserts the books below
@@ -119,10 +120,10 @@ const books = [
   }
 ];
 
-db.Book.remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+db.Book.deleteMany({})
+  .then(() => db.Book.insertMany(books))
   .then(data => {
-    console.log(data.result.n + ' records inserted!');
+    console.log(data.length + ' records inserted!');
     process.exit(0);
   })
   .catch(err => {

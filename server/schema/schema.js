@@ -95,6 +95,34 @@ const Query = new GraphQLObjectType({
   }
 });
 
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addBook: {
+      type: Book,
+      args: {
+        title: { type: GraphQLString },
+        genre: { type: GraphQLString },
+        author: { type: GraphQLString },
+        synopsis: { type: GraphQLString },
+        authorId: { type: GraphQLID }
+      },
+      resolve(_parent, args) {
+        const book = new db.Book({
+          title: args.title,
+          genre: args.genre,
+          author: args.author,
+          synopsis: args.synopsis,
+          authorId: args.authorId
+        });
+
+        return book.save();
+      }
+    }
+  }
+});
+
 module.exports = new GraphQLSchema({
-  query: Query
+  query: Query,
+  mutation: Mutation
 });

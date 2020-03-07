@@ -31,7 +31,7 @@ function SearchForm(props) {
           </div>
           <div className='row'>
             <div className='col s12'>
-              <button className='col s2 btn right'>Search</button>
+              <button className='col s2 btn right red lighten-2'>Search</button>
             </div>
           </div>
         </form>

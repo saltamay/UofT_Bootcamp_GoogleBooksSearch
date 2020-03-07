@@ -8,6 +8,11 @@ body {
   justify-content: space-between !important;
 }
 
-.btn-group .btn-group-item {
+.btn-group-item {
   margin: 0 5px;
+}
+
+.card.card-nested {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }

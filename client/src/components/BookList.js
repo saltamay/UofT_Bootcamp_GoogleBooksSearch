@@ -7,7 +7,7 @@ function BookList(props) {
       <div className='container'>
         <div className='row'>
           {props.books.map(book => (
-            <Book key={book.id} book={book.volumeInfo} />
+            <Book key={book.id} book={book.volumeInfo} isSearch={true} />
           ))}
         </div>
       </div>

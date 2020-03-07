@@ -19,7 +19,7 @@ function App() {
           <NavBar />
           <h1 className='center-align'>Hello from Google Books!</h1>
           <Switch>
-            <Route path='/' component={Search} />
+            <Route exact path='/' component={Search} />
             <Route exact path='/books' component={Books} />
           </Switch>
         </div>

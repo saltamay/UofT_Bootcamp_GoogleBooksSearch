@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 
-function SearchForm() {
+function SearchForm(props) {
   const [query, SetQuery] = useState('');
 
+  const handleFormSubmit = e => {
+    e.preventDefault();
+
+    if (props.onFormSubmit) {
+      props.onFormSubmit(query);
+    }
+  };
   return (
     <div className='container'>
       <div className='row'>
-        <form className='col s12'>
+        <form className='col s12' onSubmit={handleFormSubmit}>
           <h5>Book Search</h5>
           <div className='row'>
             <div className='input-field col s12'>

@@ -2,15 +2,27 @@ import React from 'react';
 import Book from './Book';
 
 function BookList(props) {
-  return (
-    <div className='container'>
-      <div className='row'>
-        {props.books.map(book => (
-          <Book key={book.title} book={book} />
-        ))}
+  if (props.type === 'search') {
+    return (
+      <div className='container'>
+        <div className='row'>
+          {props.books.map(book => (
+            <Book key={book.id} book={book.volumeInfo} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className='container'>
+        <div className='row'>
+          {props.books.map(book => (
+            <Book key={book.id} book={book} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default BookList;

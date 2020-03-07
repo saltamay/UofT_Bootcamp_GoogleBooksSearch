@@ -10,11 +10,11 @@ function Book(props) {
         </div>
         <div className='card-stacked'>
           <div className='card-content'>
-            <div class='card-title valign-wrapper'>
+            <div className='card-title valign-wrapper'>
               {title}
               <div className='btn-group'>
-                <span class='btn btn-group-item'>View</span>
-                <span class='btn btn-group-item'>Delete</span>
+                <span className='btn btn-group-item'>View</span>
+                <span className='btn btn-group-item'>Delete</span>
               </div>
             </div>
             <p>{description}</p>

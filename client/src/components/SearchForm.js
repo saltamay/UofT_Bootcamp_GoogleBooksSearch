@@ -14,7 +14,7 @@ function SearchForm(props) {
     <div className='container'>
       <div className='row'>
         <form className='col s12' onSubmit={handleFormSubmit}>
-          <h5>Book Search</h5>
+          <h5>Books</h5>
           <div className='row'>
             <div className='input-field col s12'>
               <input
@@ -26,12 +26,14 @@ function SearchForm(props) {
                 value={query}
                 onChange={e => SetQuery(e.target.value)}
               />
-              <label htmlFor='firstName'>Book</label>
+              {/* <label htmlFor='firstName'>Book</label> */}
             </div>
           </div>
           <div className='row'>
             <div className='col s12'>
-              <button className='col s2 btn right red lighten-2'>Search</button>
+              <button className='col s2 btn right indigo darken-4'>
+                Search
+              </button>
             </div>
           </div>
         </form>

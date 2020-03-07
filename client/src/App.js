@@ -17,7 +17,6 @@ function App() {
       <ApolloProvider client={client}>
         <div id='main'>
           <NavBar />
-          <h1 className='center-align'>Hello from Google Books!</h1>
           <Switch>
             <Route exact path='/' component={Search} />
             <Route exact path='/books' component={Books} />

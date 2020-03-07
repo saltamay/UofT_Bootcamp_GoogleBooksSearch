@@ -1,6 +1,15 @@
 body {
-  background-color: #eee;
+  /* background-color: #eee; */
   font-family: 'Nunito Sans', sans-serif;
+}
+
+.input-field input[type='text']:focus + label {
+  color: #000 !important;
+}
+
+.input-field input[type='text']:focus {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
 }
 
 .card-title {

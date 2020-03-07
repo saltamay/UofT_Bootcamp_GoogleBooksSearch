@@ -70,12 +70,12 @@ function Book(props) {
               </div>
             </div>
             <div className='secondary-content'>
-              <a href={link} className='btn btn-group-item red lighten-2'>
+              <a href={link} className='btn btn-group-item indigo darken-4'>
                 View
               </a>
               {props.isSearch ? (
                 <span
-                  className='btn btn-group-item red lighten-2'
+                  className='btn btn-group-item indigo darken-4'
                   onClick={() => {
                     addBook({
                       variables: {
@@ -92,7 +92,7 @@ function Book(props) {
                 </span>
               ) : (
                 <span
-                  className='btn btn-group-item red lighten-2'
+                  className='btn btn-group-item indigo darken-4'
                   onClick={() =>
                     deleteBook({
                       variables: {

@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
     <nav>
       <div className='nav-wrapper'>
-        <a href='#' class='brand-logo right'>
+        <Link to='/' className='brand-logo right'>
           Scripted
-        </a>
+        </Link>
         <ul id='nav-mobile' className='left hide-on-med-and-down'>
-          <li>
-            <a href='#'>Search</a>
+          <li className='active'>
+            <Link to='/'>Search</Link>
           </li>
           <li>
-            <a href='#'>Saved</a>
+            <Link to='/books'>Saved</Link>
           </li>
         </ul>
       </div>

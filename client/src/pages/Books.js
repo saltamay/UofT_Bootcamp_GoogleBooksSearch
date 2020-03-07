@@ -8,7 +8,10 @@ const SAVED_BOOKS = gql`
     books {
       id
       title
+      authors
       description
+      image
+      link
     }
   }
 `;

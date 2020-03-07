@@ -26,8 +26,20 @@ const SAVE_BOOK = gql`
   }
 `;
 
+const DELETE_BOOK = gql`
+  mutation DeleteBook($id: ID!) {
+    deleteBook(id: $id) {
+      title
+      authors
+      description
+      image
+      link
+    }
+  }
+`;
+
 function Book(props) {
-  let { title, authors, description, image, link } = props.book;
+  let { id, title, authors, description, image, link } = props.book;
 
   if (authors) {
     authors = authors.join(', ');
@@ -35,7 +47,8 @@ function Book(props) {
     authors = null;
   }
 
-  const [addBook, { data }] = useMutation(SAVE_BOOK);
+  const [addBook] = useMutation(SAVE_BOOK);
+  const [deleteBook] = useMutation(DELETE_BOOK);
 
   return (
     <div className='col s12'>
@@ -78,7 +91,18 @@ function Book(props) {
                   Save
                 </span>
               ) : (
-                <span className='btn btn-group-item red lighten-2'>Delete</span>
+                <span
+                  className='btn btn-group-item red lighten-2'
+                  onClick={() =>
+                    deleteBook({
+                      variables: {
+                        id: id
+                      }
+                    })
+                  }
+                >
+                  Delete
+                </span>
               )}
             </div>
           </div>

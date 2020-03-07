@@ -2,3 +2,12 @@ body {
   background-color: #eee;
   font-family: 'Nunito Sans', sans-serif;
 }
+
+.card-title {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.btn-group .btn-group-item {
+  margin: 0 5px;
+}

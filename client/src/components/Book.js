@@ -70,7 +70,11 @@ function Book(props) {
               </div>
             </div>
             <div className='secondary-content'>
-              <a href={link} className='btn btn-group-item indigo darken-4'>
+              <a
+                href={link}
+                target='_blank'
+                className='btn btn-group-item indigo darken-4'
+              >
                 View
               </a>
               {props.isSearch ? (

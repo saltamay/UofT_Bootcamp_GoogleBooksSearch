@@ -23,7 +23,7 @@ function Search() {
             src={bookLover}
             style={{
               position: !searching ? 'relative' : 'absolute',
-              width: '60%',
+              width: '55%',
               top: '80px'
             }}
           />

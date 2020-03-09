@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
-// const createConnection = require('./database');
+const path = require('path');
 const schema = require('./schema/schema');
 
 const app = express();
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/v1/graphql', graphqlHTTP({ schema, graphiql: true }));
 

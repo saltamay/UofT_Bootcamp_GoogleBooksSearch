@@ -23,7 +23,8 @@ function Search() {
             src={bookLover}
             style={{
               position: !searching ? 'relative' : 'absolute',
-              width: '60%'
+              width: '60%',
+              top: '80px'
             }}
           />
           <h2>Discover</h2>

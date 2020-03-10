@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Book from './Book';
 
 function BookList(props) {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    setBooks(props.books);
+  }, [props.books]);
+
+  const handleChange = id => {
+    const newBooksList = books.filter(book => book.id !== id);
+
+    setBooks(newBooksList);
+  };
+
   if (props.type === 'search') {
     return (
       <div className='container'>
         <div className='row'>
-          {props.books.map(book => {
+          {books.map(book => {
             let image;
             if (book.volumeInfo.imageLinks) {
               image = book.volumeInfo.imageLinks.thumbnail;
@@ -14,13 +26,21 @@ function BookList(props) {
               image = null;
             }
             const b = {
+              id: book.id,
               title: book.volumeInfo.title,
               authors: book.volumeInfo.authors,
               description: book.volumeInfo.description,
               image: image,
               link: book.volumeInfo.infoLink
             };
-            return <Book key={book.id} book={b} isSearch={true} />;
+            return (
+              <Book
+                key={book.id}
+                book={b}
+                isSearch={true}
+                handleChange={handleChange}
+              />
+            );
           })}
         </div>
       </div>
@@ -29,8 +49,8 @@ function BookList(props) {
     return (
       <div className='container'>
         <div className='row'>
-          {props.books.map(book => (
-            <Book key={book.id} book={book} />
+          {books.map(book => (
+            <Book key={book.id} book={book} handleChange={handleChange} />
           ))}
         </div>
       </div>

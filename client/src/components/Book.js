@@ -94,6 +94,7 @@ function Book(props) {
                       html: 'Saved!',
                       classes: 'indigo darken-4'
                     });
+                    props.handleChange(id);
                   }}
                 >
                   Save
@@ -111,6 +112,7 @@ function Book(props) {
                       html: 'Deleted!',
                       classes: 'indigo darken-4'
                     });
+                    props.handleChange(id);
                   }}
                 >
                   Delete

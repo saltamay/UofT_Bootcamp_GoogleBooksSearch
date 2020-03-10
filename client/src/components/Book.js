@@ -90,6 +90,10 @@ function Book(props) {
                         link: link
                       }
                     });
+                    window.M.toast({
+                      html: 'Saved!',
+                      classes: 'indigo darken-4'
+                    });
                   }}
                 >
                   Save
@@ -97,13 +101,17 @@ function Book(props) {
               ) : (
                 <span
                   className='btn btn-group-item indigo darken-4'
-                  onClick={() =>
+                  onClick={() => {
                     deleteBook({
                       variables: {
                         id: id
                       }
-                    })
-                  }
+                    });
+                    window.M.toast({
+                      html: 'Deleted!',
+                      classes: 'indigo darken-4'
+                    });
+                  }}
                 >
                   Delete
                 </span>
